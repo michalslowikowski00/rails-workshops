@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+
+<h3 align="center">My movies list</h3>
+
+<div class="row text-center">
+  <%= link_to 'New Movie', new_movie_path, class: "success button", style: "border-radius: 25px" %>
+</div>
+
+<strong>
+<div align="center">
+  <%= will_paginate @movies, renderer: FoundationPagination::Rails %>
+</div>
+</strong>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Year</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.description %></td>
+        <td><%= movie.year %></td>
+        <td><%= link_to 'Show', movie, class: "button_action" %></td>
+        <td><%= link_to 'Edit', edit_movie_path(movie), class: "button_action" %></td>
+        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "button_action" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<strong>
+<div align="center">
+  <%= will_paginate @movies, renderer: FoundationPagination::Rails %>
+</div>
+</strong>
