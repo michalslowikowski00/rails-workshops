@@ -13,9 +13,15 @@
 </p>
 
 <p>
-  <strong>
-    <%= @movie.average_rating %>
-  </strong>
+  <strong>Rating: </strong>
+    <%= show_average_rating(@movie) %>
+</p>
+
+<p>
+  <strong>Your rate: </strong>
+  <% (1..10).each do |value|%>
+    <%= link_to value, ratings_path(value: value, movie_id: @movie.id), method: :post %>
+  <% end %>
 </p>
 
 <p>
