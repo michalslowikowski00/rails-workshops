@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  # login is require for the method only, movie list is open for everyone
+  before_action :authenticate_user!, only:[:new, :edit, :update, :destroy]
 
   # GET /movies
   # GET /movies.json

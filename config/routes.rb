@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/', to: 'main#index' # root sciezki do main index
   # get '/main', to: 'main#index' # root sciezki do /main
   resources :movies
