@@ -20,8 +20,22 @@ pre {
   font-size: 11px;
 }
 
+/*button show itp style*/
+
 a {
-  color: #000;
+
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50; /* Green */
+  padding: 5px;
+  border-radius: 8px;
+
+  /*color: #000;
+  border-radius: 30;*/
+
+  /* background-color: white;
+  color: black;
+  border: 2px solid #4CAF50; /* Green */
 
   &:visited {
     color: #666;
@@ -29,7 +43,7 @@ a {
 
   &:hover {
     color: #fff;
-    background-color: #000;
+    background-color: #008CBA;
   }
 }
 
