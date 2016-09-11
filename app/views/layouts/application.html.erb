@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
+<body>
 
-    <%= yield %>
+<!--login panel-->
+<% if current_user.present? %>
+    <div class="text-right">
+      <span>
+        Hi, <%= current_user.email %>
+      </span>
+      <span>
+        <%= link_to 'sing out', destroy_user_session_path, method: :delete, class: 'abc' %>
+      </span>
+    </div>
+    <div>
+      <%= link_to 'delete account', user_path(current_user), method: :delete %>
+    </div>
 
-  </body>
+<% else %>
+  <div class="text-right">
+    <%= link_to 'sing in', new_user_session_path %>
+  </div>
+<% end %>
+
+<%= yield %>
+
+</body>
 </html>
