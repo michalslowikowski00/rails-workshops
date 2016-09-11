@@ -25,11 +25,18 @@ movies.take(200).each do |movie|
   description = movie['description']
 
   # Here you can use variables
-  Movie.create!(title: title,
+  created_movie = Movie.create!(title: title,
                 description: description,
                 year: year,
                 poster: cover_url
   )
+
+  created_movie.ratings << Rating.create(value: rand(1..10))
+  created_movie.ratings << Rating.create(value: rand(1..10))
+  created_movie.ratings << Rating.create(value: rand(1..10))
+  created_movie.ratings << Rating.create(value: rand(1..10))
+  # Rating.create(value: round(1..10), movie_id: created_movie.id)
+
 end
 puts "done!"
 
